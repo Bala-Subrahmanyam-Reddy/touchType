@@ -1,0 +1,38 @@
+.Character {
+    white-space: pre;
+    padding-top: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.Character-current {
+    background-color: #09d3ac;
+    font-size: 30px;
+}
+
+.Character-out {
+    color: rgb(112, 110, 110);
+    font-size: 25px;
+}
+
+.character-incoming {
+    color: #9110fa;
+    font-size: 25px;
+}
+
+.type-calc-text {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.wpm-text {
+    color: dodgerblue;
+}
+
+.accuracy-text {
+    color: green;
+}
+.error-text{
+    color: rgb(173, 42, 42);
+}
