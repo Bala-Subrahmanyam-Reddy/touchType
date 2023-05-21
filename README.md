@@ -4,7 +4,7 @@ Touch type is a react based web application that allows users to type and practi
 
 ## Demo URL
 
-https://touchTypeWeb.netlify.app
+https://touchtypebalu.netlify.app
 
 ## Demo
 
