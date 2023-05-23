@@ -1,11 +1,12 @@
 import './index.css';
 import { useEffect, useState } from 'react';
 import { RiTimerFlashLine } from 'react-icons/ri';
-import { useContext } from 'react';
+import { useSource } from '../../context/sourceContext';
 
 const HomeLeftBar = () => {
   const [countDown, setCountDown] = useState(0);
   const [runTimer, setRunTimer] = useState(true);
+  const { changeSourceType } = useSource();
 
   useEffect(() => {
     let timerId;
@@ -59,6 +60,7 @@ const HomeLeftBar = () => {
                 value=''
                 defaultChecked={true}
                 name='sourceType'
+                onChange={() => changeSourceType(0)}
               />
               <label className='form-check-label'>Keys</label>
             </div>
@@ -70,6 +72,7 @@ const HomeLeftBar = () => {
                 type='radio'
                 name='sourceType'
                 value=''
+                onChange={() => changeSourceType(1)}
               />
               <label className='form-check-label'>Word</label>
             </div>

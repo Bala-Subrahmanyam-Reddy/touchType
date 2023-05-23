@@ -1,15 +1,17 @@
 import './index.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CiKeyboard } from 'react-icons/ci';
 import { FaPercentage } from 'react-icons/fa';
 import { BiErrorCircle } from 'react-icons/bi';
 import usePressKey from '../../hooks/usePressKey';
 import { generate } from '../utils/words';
 import { currentTime } from '../utils/time';
+import { useSource } from '../../context/sourceContext';
 
-const initialWords = generate(10);
+// const initialWords = generate(10);
 
 const HomeRightBar = () => {
+  const [initialWords, setInitialWords] = useState('');
   const { keyPressed, downHandler } = usePressKey();
   const [leftPadding, setLeftPadding] = useState(
     new Array(20).fill(' ').join('')
@@ -26,6 +28,17 @@ const HomeRightBar = () => {
   const [typedChars, setTypedChars] = useState('');
   //errors
   const [errorCount, setErrorCount] = useState(0);
+  const { source } = useSource();
+
+  useEffect(() => {
+    setOutgoingChars('');
+    setIncomingChars('');
+    setCurrentChar('');
+    const initialWords = generate(10, source);
+    setInitialWords(initialWords);
+    setCurrentChar(initialWords.charAt(0));
+    setIncomingChars(initialWords.substr(1));
+  }, [source]);
 
   const handleKeyDown = (event) => {
     downHandler(event.key);
